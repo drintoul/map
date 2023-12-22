@@ -10,7 +10,7 @@ database = st.secrets["database"]["name"]
 port = st.secrets["database"]["port"]
 
 # Connect to the database
-conn = pymysql.connect(host=host, user=user, password=password, database=database, port=port)
+cnxn = pymysql.connect(host=host, user=user, password=password, database=database, port=port)
 cursor = conn.cursor()
 
 # Streamlit app
@@ -34,3 +34,6 @@ with col1:
 
 with col2:
   st.map(venues)
+
+cursor.close()
+cnxn.close()
