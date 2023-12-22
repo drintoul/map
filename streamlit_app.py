@@ -1,5 +1,6 @@
 import streamlit as st
 import pymysql
+import pandas
 
 # Database connection details
 host = st.secrets["database"]["host"]
@@ -18,7 +19,8 @@ st.title("MySQL-Streamlit App")
 # Example query
 query = "SELECT venue, latitude AS 'lat', longitude AS 'long' FROM venues WHERE latitude IS NOT NULL LIMIT 5"
 cursor.execute(query)
-venues = cursor.fetchall()
+results = cursor.fetchall()
 
+venues = pd.DataFrame(results)
 st.write(venues)
-#st.map(venues)
+st.map(venues)
