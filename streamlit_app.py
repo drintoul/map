@@ -21,6 +21,6 @@ query = "SELECT venue, latitude AS 'lat', longitude AS 'long' FROM venues WHERE 
 cursor.execute(query)
 results = cursor.fetchall()
 
-venues = pd.DataFrame(results)
+venues = pd.DataFrame(results, columns=['venue', 'lat', 'long'])
 st.write(venues)
 st.map(venues)
