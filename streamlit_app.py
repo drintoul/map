@@ -1,6 +1,6 @@
 import streamlit as st
 import pymysql
-import pandas
+import pandas as pd
 
 # Database connection details
 host = st.secrets["database"]["host"]
