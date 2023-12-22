@@ -27,15 +27,10 @@ def query():
 
 venues = query()
 
-col1, col2 = st.columns(2)
-
 venues = venues.sample(frac=1).head()
 
-with col1:
-  st.dataframe(venues, hide_index=True)
-
-with col2:
-  st.map(venues)
+st.dataframe(venues, hide_index=True)
+st.map(venues)
 
 cursor.close()
 cnxn.close()
