@@ -17,8 +17,9 @@ cursor = conn.cursor()
 st.title("Track & Field Venues")
 
 # Example query
-query = "SELECT venue, latitude AS 'lat', longitude AS 'long' FROM venues WHERE latitude IS NOT NULL"
-@st.cache_data(ttl=86400)
+query = "SELECT venue, latitude AS 'lat', longitude AS 'lon' FROM venues WHERE latitude IS NOT NULL"
+
+@st.cache_data(ttl=3600*24)
 cursor.execute(query)
 results = cursor.fetchall()
 
