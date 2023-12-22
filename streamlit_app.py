@@ -19,8 +19,8 @@ st.title("Track & Field Venues")
 # Example query
 query = "SELECT venue, latitude AS 'lat', longitude AS 'lon' FROM venues WHERE latitude IS NOT NULL"
 
-@st.cache_data(ttl=3600*24)
 cursor.execute(query)
+@st.cache_data(ttl=3600*24)
 results = cursor.fetchall()
 
 venues = pd.DataFrame(results, columns=['venue', 'lat', 'lon'])
