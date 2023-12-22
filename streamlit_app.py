@@ -14,7 +14,7 @@ conn = pymysql.connect(host=host, user=user, password=password, database=databas
 cursor = conn.cursor()
 
 # Streamlit app
-st.title("MySQL-Streamlit App")
+st.title("Track & Field Venues")
 
 # Example query
 query = "SELECT venue, latitude AS 'lat', longitude AS 'long' FROM venues WHERE latitude IS NOT NULL"
@@ -23,7 +23,7 @@ results = cursor.fetchall()
 
 venues = pd.DataFrame(results, columns=['venue', 'lat', 'lon'])
 
-col1, col2 = st.columns()
+col1, col2 = st.columns(2)
 
 with col1:
   st.write(venues)
