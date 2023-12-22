@@ -17,7 +17,7 @@ cursor = conn.cursor()
 st.title("MySQL-Streamlit App")
 
 # Example query
-query = "SELECT venue, latitude AS 'lat', longitude AS 'long' FROM venues WHERE latitude IS NOT NULL LIMIT 5"
+query = "SELECT venue, latitude AS 'lat', longitude AS 'long' FROM venues WHERE latitude IS NOT NULL"
 cursor.execute(query)
 results = cursor.fetchall()
 
