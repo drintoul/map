@@ -11,7 +11,7 @@ port = st.secrets["database"]["port"]
 
 # Connect to the database
 cnxn = pymysql.connect(host=host, user=user, password=password, database=database, port=port)
-cursor = conn.cursor()
+cursor = cnxn.cursor()
 
 # Streamlit app
 st.title("Track & Field Venues")
