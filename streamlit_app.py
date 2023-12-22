@@ -20,4 +20,5 @@ query = "SELECT venue, latitude AS 'lat', longitude AS 'long' FROM venues WHERE 
 cursor.execute(query)
 venues = cursor.fetchall()
 
-st.map(venues)
+st.write(venues)
+#st.map(venues)
