@@ -22,5 +22,11 @@ cursor.execute(query)
 results = cursor.fetchall()
 
 venues = pd.DataFrame(results, columns=['venue', 'lat', 'lon'])
-st.write(venues)
-st.map(venues)
+
+col1, col2 = st.columns()
+
+with col1:
+  st.write(venues)
+
+with col2:
+  st.map(venues)
