@@ -23,11 +23,10 @@ def query():
 
   cursor.execute("SELECT venue, latitude, longitude FROM venues WHERE latitude IS NOT NULL")
   results = cursor.fetchall()
-  return pd.DataFrame(results, columns=['venue', 'lat', 'lon'])
+  venues = pd.DataFrame(results, columns=['venue', 'lat', 'lon'])
+  return venues.sample(frac=1).head()
 
 venues = query()
-
-venues = venues.sample(frac=1).head()
 
 st.dataframe(venues, hide_index=True)
 st.map(venues)
