@@ -34,8 +34,8 @@ def query():
 
 venues = query()
 
-st.dataframe(venues, hide_index=True)
-st.map(venues)
+#st.dataframe(venues, hide_index=True)
+#st.map(venues)
 
 cursor.close()
 cnxn.close()
