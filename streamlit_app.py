@@ -18,11 +18,11 @@ st.title("Track & Field Venues")
 
 # Example query
 
-query = "select v.venue, latitude as 'lat', longitude as 'lon', count(*) as 'count'
-           from venues v, performances p
-           where v.latitude is not null and v.longitude is not null
-           and p.venue = v.venue group by p.venue
-           order by count(*) desc limit 10;"
+query = "select v.venue, latitude as 'lat', longitude as 'lon', count(*) as 'count' " \
+        "from venues v, performances p " \
+        "where v.latitude is not null and v.longitude is not null " \
+        "and p.venue = v.venue group by p.venue " \
+        "order by count(*) desc limit 10;"
 
 #@st.cache_data(ttl=3600*24)
 def query():
