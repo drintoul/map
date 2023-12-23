@@ -29,7 +29,7 @@ def query():
 
   cursor.execute(sql)
   results = cursor.fetchall()
-  venues = pd.DataFrame(results, columns=['venue', 'lat', 'lon'])
+  venues = pd.DataFrame(results, columns=['venue', 'lat', 'lon', 'count'])
   return venues.sample(frac=1).head()
 
 venues = query()
