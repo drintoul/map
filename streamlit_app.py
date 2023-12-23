@@ -1,6 +1,7 @@
 import streamlit as st
 import pymysql
 import pandas as pd
+import pydeck as pdk
 
 # Database connection details
 host = st.secrets["database"]["host"]
