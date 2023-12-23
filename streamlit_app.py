@@ -41,7 +41,7 @@ cursor.close()
 cnxn.close()
 
 st.pydeck_chart(pdk.Deck(
-    map_style=None #,
+    map_style=None,
     #initial_view_state=pdk.ViewState(
     #    latitude=37.76,
     #    longitude=-122.4,
