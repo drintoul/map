@@ -20,7 +20,7 @@ st.title("Track & Field Venues")
 
 # Example query
 
-sql = "select v.venue, latitude as 'lat', longitude as 'lon' " \
+sql = "select v.venue, longitude as 'lon', latitude as 'lat' " \
       "from venues v, performances p " \
       "where v.latitude is not null and v.longitude is not null " \
       "and p.venue = v.venue;" 
@@ -30,7 +30,7 @@ def query():
 
   cursor.execute(sql)
   results = cursor.fetchall()
-  venues = pd.DataFrame(results, columns=['venue', 'lat', 'lon', 'count'])
+  venues = pd.DataFrame(results, columns=['venue', 'lon', 'lat'])
   return venues
 
 venues = query()
