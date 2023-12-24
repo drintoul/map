@@ -47,12 +47,12 @@ chart_data = pd.DataFrame(
 
 st.pydeck_chart(pdk.Deck(
     map_style=None,
-    #initial_view_state=pdk.ViewState(
-    #    latitude=37.76,
-    #    longitude=-122.4,
-    #    zoom=11,
-    #    pitch=50,
-    #),
+    initial_view_state=pdk.ViewState(
+        latitude=37.76,
+        longitude=-122.4,
+        zoom=11,
+        pitch=50,
+    ),
     layers=[
         pdk.Layer(
            'HexagonLayer',
