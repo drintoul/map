@@ -20,13 +20,10 @@ st.title("Track & Field Venues")
 
 # Example query
 
-competitor = st.dropdown(['Julien ALFRED', 'Matthew BOLING'])
-
 sql = "select v.venue, p.date, v.latitude as 'lat', v.longitude as 'lon' " \
       "from venues v, performances p " \
       "where v.latitude is not null and v.longitude is not null " \
-      f"and p.venue = v.venue and p.competitor LIKE '{competitor}' " \
-      "order by p.date; "
+      f"and p.venue = v.venue order by p.date; "
 
 @st.cache_data(ttl=3600)
 def query():
@@ -37,6 +34,9 @@ def query():
   return venues
 
 venues = query()
+
+competitor = st.dropdown(['Julien ALFRED', 'Matthew BOLING'])
+venues = venues.loc[:,'competitor' == competitor]
 
 st.dataframe(venues, hide_index=True)
 st.map(venues)
