@@ -25,7 +25,7 @@ sql = "select v.venue, latitude as 'lat', longitude as 'lon', count(*) as 'count
       "and p.venue = v.venue group by p.venue " \
       "order by count(*) desc limit 10;"
 
-@st.cache_data(ttl=3600*24)
+@st.cache_data(ttl=3600)
 def query():
 
   cursor.execute(sql)
