@@ -20,7 +20,7 @@ st.title("Track & Field Venues")
 
 # Example query
 
-sql = "select v.venue, longitude as 'lon', latitude as 'lat' " \
+sql = "select v.venue, latitude as 'lat', longitude as 'lon' " \
       "from venues v, performances p " \
       "where v.latitude is not null and v.longitude is not null " \
       "and p.venue = v.venue;" 
@@ -30,7 +30,7 @@ def query():
 
   cursor.execute(sql)
   results = cursor.fetchall()
-  venues = pd.DataFrame(results, columns=['venue', 'lon', 'lat'])
+  venues = pd.DataFrame(results, columns=['venue', 'lat', 'lon'])
   return venues
 
 venues = query()
@@ -48,8 +48,8 @@ chart_data = pd.DataFrame(
 st.pydeck_chart(pdk.Deck(
     map_style=None,
     initial_view_state=pdk.ViewState(
-        latitude=37.76,
-        longitude=-122.4,
+        latitude=44.0423,
+        longitude=-123.071,
         zoom=11,
         pitch=50,
     ),
