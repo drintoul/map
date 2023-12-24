@@ -20,7 +20,7 @@ st.title("Track & Field Venues")
 
 # Example query
 
-sql = "select v.venue, p.date, v.latitude as 'lat', v.longitude as 'lon' " \
+sql = "select competitor, v.venue, p.date, v.latitude as 'lat', v.longitude as 'lon' " \
       "from venues v, performances p " \
       "where v.latitude is not null and v.longitude is not null " \
       f"and p.venue = v.venue order by p.date; "
