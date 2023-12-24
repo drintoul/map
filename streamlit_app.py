@@ -23,7 +23,7 @@ st.title("Track & Field Venues")
 sql = "select competitor, v.venue, p.date, v.latitude as 'lat', v.longitude as 'lon' " \
       "from venues v, performances p " \
       "where v.latitude is not null and v.longitude is not null " \
-      f"and p.venue = v.venue order by p.date; "
+      f"and p.venue = v.venue and p.date >= '2023' order by p.date; "
 
 @st.cache_data(ttl=3600)
 def query():
