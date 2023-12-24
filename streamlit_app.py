@@ -31,7 +31,7 @@ def query():
 
   cursor.execute(sql)
   results = cursor.fetchall()
-  venues = pd.DataFrame(results, columns=['venue', 'lat', 'lon'])
+  venues = pd.DataFrame(results, columns=['venue', 'date', 'lat', 'lon'])
   return venues
 
 venues = query()
