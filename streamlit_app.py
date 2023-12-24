@@ -20,10 +20,12 @@ st.title("Track & Field Venues")
 
 # Example query
 
+competitor = st.dropdown(['Julien ALFRED', 'Matthew BOLING'])
+
 sql = "select v.venue, p.date, v.latitude as 'lat', v.longitude as 'lon' " \
       "from venues v, performances p " \
       "where v.latitude is not null and v.longitude is not null " \
-      "and p.venue = v.venue and p.competitor LIKE 'Julien ALFRED' " \
+      f"and p.venue = v.venue and p.competitor LIKE '{competitor}' " \
       "order by p.date; "
 
 @st.cache_data(ttl=3600)
