@@ -35,7 +35,7 @@ def query():
 
 venues = query()
 
-competitor = st.dropdown(['Julien ALFRED', 'Matthew BOLING'])
+competitor = st.selectbox('Enter Competitor', ['Julien ALFRED', 'Matthew BOLING'])
 venues = venues.loc[:,'competitor' == competitor]
 
 st.dataframe(venues, hide_index=True)
