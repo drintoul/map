@@ -23,7 +23,7 @@ st.title("Track & Field Venues")
 sql = "select v.venue, latitude as 'lat', longitude as 'lon' " \
       "from venues v, performances p " \
       "where v.latitude is not null and v.longitude is not null " \
-      "and p.venue = v.venue;" 
+      "and p.venue = v.venue and p.competitor = 'Julien ALFRED';" 
 
 @st.cache_data(ttl=3600)
 def query():
